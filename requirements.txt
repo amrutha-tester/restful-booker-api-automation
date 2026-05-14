@@ -1,0 +1,5 @@
+requests
+pytest
+jsonschema
+faker
+pytest-order

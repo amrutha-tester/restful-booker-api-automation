@@ -1,2 +1,4 @@
 Tests/__pycache__/*
 Utils/__pycache__/*
+allure-results/*
+allure-report/*

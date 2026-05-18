@@ -1,8 +1,11 @@
+import allure
 import pytest
 import requests
 
+@allure.feature("Booking Lifecycle")
+@allure.story("Full End-to-End Flow")
+@allure.title("Verify Complete Booking Lifecycle (Create, Get, Update, Delete)")
 @pytest.mark.integration
-
 def test_booking_lifecycle(base_url,headers,booking_payload):
     credentials = {"username": "admin", "password": "password123"}
     # Get auth token

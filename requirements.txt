@@ -1,5 +1,5 @@
 requests
 pytest
 jsonschema
-faker
+allure-pytest
 pytest-order

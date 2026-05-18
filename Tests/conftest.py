@@ -31,7 +31,7 @@ def headers(auth_token):
 # Cookies fixture
 @pytest.fixture
 def auth_cookie(auth_token):
-    return {"Cookie": f"token={auth_token}"}
+    return {"token": auth_token}
 
 # Booking ID fixture (example of a dynamic fixture that can be used in tests)
 @pytest.fixture
@@ -47,3 +47,9 @@ def booking_payload():
         },
         "additionalneeds": "Breakfast"
     }
+
+# Booking Id fixture
+@pytest.fixture
+def booking_id(base_url, booking_payload):
+    response = requests.post(f"{base_url}/booking", json=booking_payload)
+    return response.json().get("bookingid")

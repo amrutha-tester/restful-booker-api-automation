@@ -53,8 +53,15 @@ pipeline {
         }
     }
 
+  
     post {
         always {
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results: [[path: "${ALLURE_RESULTS_DIR}"]],
+                reportBuildPolicy: 'ALWAYS'
+            ])
             archiveArtifacts artifacts: 'allure-results/**, allure-report/**', allowEmptyArchive: true
         }
     }

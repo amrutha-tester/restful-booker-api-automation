@@ -36,7 +36,7 @@ pipeline {
                     call %VENV_DIR%\\Scripts\\activate.bat
                     if exist %ALLURE_RESULTS_DIR% rmdir /s /q %ALLURE_RESULTS_DIR%
                     if exist %ALLURE_REPORT_DIR% rmdir /s /q %ALLURE_REPORT_DIR%
-                    pytest tests --alluredir=%ALLURE_RESULTS_DIR%
+                    pytest Tests --alluredir=%ALLURE_RESULTS_DIR%
                 '''
             }
         }

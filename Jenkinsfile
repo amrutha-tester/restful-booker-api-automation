@@ -6,6 +6,7 @@ pipeline {
     }
 
     environment {
+        PYTHON_PATH = 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
         VENV_DIR = '.venv'
         ALLURE_RESULTS_DIR = 'allure-results'
         ALLURE_REPORT_DIR = 'allure-report'
@@ -21,9 +22,9 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 bat '''
-                    python -m venv %VENV_DIR%
+                    "%PYTHON_PATH%" -m venv %VENV_DIR%
                     call %VENV_DIR%\\Scripts\\activate.bat
-                    python -m pip install --upgrade pip
+                    "%PYTHON_PATH%" -m pip install --upgrade pip
                     pip install -r requirements.txt
                 '''
             }

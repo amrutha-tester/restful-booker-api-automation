@@ -61,3 +61,12 @@ def test_delete_booking(base_url, headers, auth_cookie):
 def test_confirm_booking_deletion(base_url):
     confirm_response = requests.get(f"{base_url}/booking/{booking_id}")
     assert confirm_response.status_code == 404, f"Expected status code 404 for deleted booking, got {confirm_response.status_code}"
+
+@allure.feature("CRUD Operations")
+@allure.story("Delete")
+@allure.title("Delete Non-existent Booking")
+@pytest.mark.crud
+def test_delete_nonexistent_booking(base_url, headers, auth_cookie):
+    non_existent_id = 999999
+    response = requests.delete(f"{base_url}/booking/{non_existent_id}", headers = headers, cookies = auth_cookie)
+    assert response.status_code == 404, f"Expected status code 404 for non-existent booking deletion, got {response.status_code}"
